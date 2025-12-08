@@ -16,7 +16,6 @@ import {
 
 // Firebaseの設定
 const firebaseConfig = {
-    apiKey: "AIzaSyDeNEACWvVx4T__S_7l6QQjNHnXdJcVrAI",
     authDomain: "family-schedule-kadai04.firebaseapp.com",
     projectId: "family-schedule-kadai04",
     storageBucket: "family-schedule-kadai04.firebasestorage.app",
