@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Famiryスケジュール</title>    <title>Familyスケジュール</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="shortcut icon" href="">
+</head>
+<body>
+    <h1 class="title">Family Schedule Calendar</h1>
+    
+ <div class="schedulebox">
+
+ <div  class="schedulerbox" style="margin-bottom: 30px;">
+    <p class="schedulerboxtitle">スケジュール追加</p>
+    <form id="addScheduleForm">
+        <select id="scheduleUserId" required>
+            <option value="">-- ユーザーを選択 --</option>
+        </select>
+        <input type="text" id="scheduleTitle" placeholder="予定のタイトル" required>
+        <label>
+            <input type="checkbox" id="allDayToggle"> 終日 (時間なし)
+        </label><br>
+        <div class="scheduleStart-end">
+        <label for="scheduleStart">開始日時:</label>
+        <input type="datetime-local" id="scheduleStart" required>
+
+        <label for="scheduleEnd">終了日時:</label>
+        <input type="datetime-local" id="scheduleEnd"> 
+
+        <button class="formbutton" type="submit">予定を追加</button>
+        </div>
+    </form>
+</div>
+
+    <div class="userbox"  style="margin-bottom: 30px;">
+        <p class="userboxtitle">ユーザー/カラー設定</p>
+        
+        <form id="addUserForm" autocomplete="off"> 
+            <input type="text" id="userName" placeholder="名前 (例: ママ, 太郎)" required>
+            <input type="color" id="userColor" value="#007bff">
+            <button class="formbutton" type="submit">ユーザー追加</button>
+        </form>
+    </div>
+
+</div>
+
+<div id="editModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:100;">
+    <div style="background:white; margin:10% auto; padding:20px; width:400px; border-radius:8px;">
+        <h3>📅 予定の修正/削除</h3>
+        <form id="editScheduleForm">
+            <input type="hidden" id="editScheduleId">
+
+            <label for="editTitle">タイトル:</label>
+            <input type="text" id="editTitle" required style="width:100%; margin-bottom:10px;"><br>
+
+            <label for="editStart">開始日時:</label>
+            <input type="datetime-local" id="editStart" required style="width:100%; margin-bottom:10px;"><br>
+
+            <label for="editEnd">終了日時:</label>
+            <input type="datetime-local" id="editEnd" style="width:100%; margin-bottom:20px;"><br>
+
+            <button type="submit" id="saveEditButton">修正を保存</button>
+            <button type="button" id="deleteButton" style="background-color:rgba(248, 146, 146, 0.671); color:white;">削除</button>
+            <button type="button" id="closeModalButton">閉じる</button>
+        </form>
+    </div>
+</div>
+
+    <div id="calendarbox">
+    <div id='calendar'></div>
+    </div>
+
+    
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core/locales/ja.global.min.js'></script> 
+
+    <script type="module" src="./js/script.js"></script>
+</body>
+</html>

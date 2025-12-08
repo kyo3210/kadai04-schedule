@@ -1,0 +1,300 @@
+
+/*  フォントの設定 */
+
+@font-face {
+    font-family: 'MyCustomFont'; 
+    src: url('../fonts/font.otf') format('otf'); 
+    font-display: swap; 
+}
+
+
+
+body {
+    font-family: 'MyCustomFont', 'ヒラギノ角ゴ Pro W3', 'メイリオ', sans-serif;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1900px;
+}
+
+.schedulebox {
+    max-width: 1500px;
+    display: flex; /* レスポンシブ対応 */
+    justify-content: center;
+    gap: 30px;
+    margin-top: 0px;
+    margin: 0 auto;
+    font-family: 'MyCustomFont', 'ヒラギノ角ゴ Pro W3', 'メイリオ', sans-serif;
+}
+
+.title {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'MyCustomFont', 'ヒラギノ角ゴ Pro W3', 'メイリオ', sans-serif;
+    font-size: 80px;
+    background: #6ab4ba;
+    color: white;
+    text-shadow: 0px 3px 0px #b2a98f,
+                 0px 14px 10px rgba(0,0,0,0.15),
+                 0px 24px 2px rgba(0,0,0,0.1),
+                 0px 34px 30px rgba(0,0,0,0.1);
+}
+
+/* フォームコンテナの基本設定 */
+.userbox,
+.schedulerbox {
+    flex: 1 1 45%; 
+    box-sizing: border-box;
+    font-family: 'MyCustomFont', 'ヒラギノ角ゴ Pro W3', 'メイリオ', sans-serif;
+}
+
+.userboxtitle,
+.schedulerboxtitle {
+    margin: 0 auto;
+    background: -webkit-linear-gradient(#89cac7 50%, #6ab4ba 50%);
+    background: linear-gradient(#89cac7 50%, #6ab4ba 50%);
+    color: #fff;
+    padding: 0.3em 0.5em;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#addScheduleForm {
+    border: 3px solid #6ab4ba;
+    padding: 20px 50px;
+    font-size: 20px;
+}
+
+#addUserForm {
+    border: 3px solid #6ab4ba;
+    padding: 30px;
+    font-size: 20px;
+}
+
+/* フォーム入力欄のスタイル */
+#userName, #scheduleUserId, #scheduleTitle, #scheduleStart, #scheduleEnd {
+    font-family: 'MyCustomFont', 'ヒラギノ角ゴ Pro W3', 'メイリオ', sans-serif;
+    height: 30px;
+    width: 100% !important; /* レスポンシブ化 */
+    max-width: none;
+    font-size: 18px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+}
+
+#userColor {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    border-radius: 50px;
+}
+
+.formbutton {
+    color: #f8fafa;
+    background-color: #05b3bf;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    height: 30px;
+    width: auto;
+    padding: 0 15px;
+}
+
+/* ------------------------------------------- */
+/* 3. FullCalendar 全体と表示調整 */
+/* ------------------------------------------- */
+#calendar {
+    max-width: 1500px;
+    height: 1100px;
+    margin: 0 auto;
+    margin-top: 0px;
+    background-color: #ffffffde; 
+    border-radius: 5px;
+    font-size: 20px;
+    border-style: inset;
+    width: 95%; /* レスポンシブ幅 */
+}
+
+/* カレンダー全体のフォントサイズ調整 */
+
+/* 年月表示の文字を大きくする */
+.fc-toolbar-title {
+    font-size: 36px !important; /* 既存の1.1emを上書きし、さらに大きく */
+}
+/* 曜日名の文字を大きくする */
+.fc-col-header-cell-cushion {
+    font-size: 22px; 
+}
+
+/*  日付の数字を大きくする */
+.fc-daygrid-day-number {
+    font-size: 24px; 
+}
+
+
+/* スケジュール文字のサイズ */
+.fc-event-title {
+    font-size: 18px; 
+    line-height: 1.3;
+}
+.fc-timegrid-event .fc-event-time {
+    font-size: 16px; 
+}
+.fc-slot-label {
+    font-size: 14px; 
+}
+
+/* 1. イベント全体をブロック要素にし、縦に積み重ねることを強制 */
+/* .fc-event-main-frame,
+.fc-daygrid-event-harness {
+    display: block !important;
+} */
+
+/* 2. イベントコンテナ全体に対して、折り返しと縦積みを強制 */
+/* .fc-event-title-container,
+.fc-event {
+    /* ブロック要素として縦に並ぶように強制 */
+    /*display: block !important; 
+    /* 折り返しを許可 */
+    /*white-space: normal !important; 
+    height: auto !important;
+    /* 余裕を持たせて隣の要素に重ならないようにする */
+    /*box-sizing: border-box; 
+    width: 100% !important;
+}*/
+
+/* イベントタイトルの折り返し設定 */
+/* .fc-event-title-container,
+.fc-event {
+    white-space: normal !important;
+    height: auto !important;
+}*/
+
+
+
+/* ------------------------------------------- */
+/* 土日祝日と月ごとの背景 */
+/* ------------------------------------------- */
+
+/* 土日の背景色 */
+.fc-sat {
+    background-color: #e6f7ff !important; 
+}
+.fc-sun {
+    background-color: #ffe6e6 !important; 
+}
+/* 祝日の背景色 (土日の色が上書きされないよう注意) */
+.fc-holiday {
+    background-color: #ffe6e6 !important; 
+}
+
+
+/* 月ごとの背景画像コンテナ (#calendarbox が親コンテナの想定) */
+#calendarbox {
+    transition: background-color 0.5s ease;
+    max-width: 1900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-family: 'MyCustomFont', 'ヒラギノ角ゴ Pro W3', 'メイリオ', sans-serif;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+/* 月別背景画像の定義 (例: 1月) */
+#calendarbox.month-january {
+    background-image: url("../images/1.png");
+}
+#calendarbox.month-february {
+    background-image: url("../images/2.png");
+}
+#calendarbox.month-march {
+    background-image: url("../images/3.png");
+}
+#calendarbox.month-april {
+    background-image: url("../images/4.png");
+}
+#calendarbox.month-may {
+    background-image: url("../images/5.png");
+}
+#calendarbox.month-june {
+    background-image: url("../images/6.png");
+}
+#calendarbox.month-july {
+    background-image: url("../images/7.png");
+}
+#calendarbox.month-august {
+    background-image: url("../images/8.png");
+}
+#calendarbox.month-september {
+    background-image: url("../images/9.png");
+}
+#calendarbox.month-october {
+    background-image: url("../images/10.png");
+}
+#calendarbox.month-november {
+    background-image: url("../images/11.png");
+}
+#calendarbox.month-december {
+    background-image: url("../images/12.png");
+}
+
+/* ------------------------------------------- */
+/* 5. モーダルウィンドウのレスポンシブ調整 */
+/* ------------------------------------------- */
+#editModal > div {
+    width: 90% !important; 
+    max-width: 450px; 
+    box-sizing: border-box;
+}
+
+/* ------------------------------------------- */
+/* 6. メディアクエリ (画面幅768px以下のスマートフォン対応) */
+/* ------------------------------------------- */
+@media (max-width: 768px) {
+    
+    /* フォームコンテナを縦に積み重ねる */
+    .schedulebox {
+        flex-direction: column;
+        gap: 15px; 
+    }
+
+    /* タイトルや見出しの文字サイズを調整 */
+    .title {
+        font-size: 40px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-shadow: none; 
+    }
+    
+    .schedulerboxtitle, .userboxtitle {
+        font-size: 20px;
+    }
+
+    /* フォーム内の文字サイズを調整 */
+    #addUserForm, #addScheduleForm {
+        font-size: 16px;
+        padding: 15px 25px;
+    }
+
+    /* カレンダーの基本フォントサイズを小さくする */
+    #calendar {
+        font-size: 14px; 
+        height: 700px; /* モバイルでは高さを調整 */
+    }
+    
+    /* 💡 モバイルでのスケジュール文字のサイズ調整 */
+    .fc-event-title {
+        font-size: 14px; /* モバイルでは14pxに縮小 */
+    }
+    .fc-timegrid-event .fc-event-time {
+        font-size: 12px;
+    }
+
+    /* FullCalendarのヘッダーボタンのサイズ調整 */
+    .fc-toolbar-title,
+    .fc-button {
+        font-size: 0.9em !important;
+    }
+}
